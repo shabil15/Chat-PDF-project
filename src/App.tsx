@@ -34,15 +34,16 @@ import ProtectedRoute from "@/components/ui/Auth/ProtectedRoute";
 import Signup from "./components/ui/Auth/Signup";
 import Login from "./components/ui/Auth/Login";
 // Initialize PDF.js worker
-pdfjsLib.GlobalWorkerOptions.workerSrc = `https://cdnjs.cloudflare.com/ajax/libs/pdf.js/${pdfjsLib.version}/pdf.worker.min.js`;
 
+
+pdfjsLib.GlobalWorkerOptions.workerSrc = `https://mozilla.github.io/pdf.js/build/pdf.mjs`;
 interface Message {
   role: "user" | "assistant";
   content: string;
 }
 
 type MessageForm = z.infer<typeof messageSchema>;
-type FileForm = z.infer<typeof fileSchema>;
+// type FileForm = z.infer<typeof fileSchema>;
 type ApiKeyForm = z.infer<typeof apiKeySchema>;
 
 function App() {
