@@ -32,7 +32,8 @@ export async function uploadToR2(file: File): Promise<string> {
     Bucket: R2_BUCKET_NAME,
     Key: key,
   });
+  console.log('File uploaded to R2:', key);
   
-  const signedUrl = await getSignedUrl(s3Client, getCommand, { expiresIn: 3600 });
+  const signedUrl = await getSignedUrl(s3Client, getCommand, { expiresIn: 24 * 3600 }); 
   return signedUrl;
 }
